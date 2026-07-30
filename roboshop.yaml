@@ -24,31 +24,31 @@
        debug:
           msg: "{{ ec2_output }}"
 
-     - name: create R53 record
-       amazon.aws.route53:
-         state: present
-         zone: "{{ domain_name }}"
-         record: "{{ item.item }}.{{ domain_name }}"  #mongodb.gssc.online
-         value: "{{ item.instances[0].private_ip_address }}"
-         type: A
-         ttl: 1
-         overwrite: true
-       loop: "{{ ec2_output.results }}"
-       when: work == "create"
+    #  - name: create R53 record
+    #    amazon.aws.route53:
+    #      state: present
+    #      zone: "{{ domain_name }}"
+    #      record: "{{ item.item }}.{{ domain_name }}"  #mongodb.gssc.online
+    #      value: "{{ item.instances[0].private_ip_address }}"
+    #      type: A
+    #      ttl: 1
+    #      overwrite: true
+    #    loop: "{{ ec2_output.results }}"
+    #    when: work == "create"
 
-     - name: create Route 53 records for frontend
-       amazon.aws.route53:
-        state: present
-        zone: "{{ domain_name }}"
-        record: "{{ domain_name }}"
-        value: "{{ item.instances[0].public_ip_address }}"
-        ttl: 1
-        type: A
-        overwrite: true
-       loop: "{{ ec2_output.results }}"
-       when: 
-        - work =="create"
-        - item.item == "frontend"
+    #  - name: create Route 53 records for frontend
+    #    amazon.aws.route53:
+    #     state: present
+    #     zone: "{{ domain_name }}"
+    #     record: "{{ domain_name }}"
+    #     value: "{{ item.instances[0].public_ip_address }}"
+    #     ttl: 1
+    #     type: A
+    #     overwrite: true
+    #    loop: "{{ ec2_output.results }}"
+    #    when: 
+    #     - work =="create"
+    #     - item.item == "frontend"
 
 
 
