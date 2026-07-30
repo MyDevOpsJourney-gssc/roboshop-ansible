@@ -19,6 +19,10 @@
        register: ec2_output
        when: work == "create"
 
+     - name: print ec2_output
+       debug:
+          msg: "{{ ec2_output }}"
+
 
      - name: delete ec2_instances
        amazon.aws.ec2_instance:
