@@ -4,7 +4,7 @@
   vars:
     instances: ["mongodb", "mysql"]
     image_id: ami-0220d79f3f480ecf5
-    work: create
+    work: delete
   tasks:
      - name: create ec2 Instances
        amazon.aws.ec2_instance:
