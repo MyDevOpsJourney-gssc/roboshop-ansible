@@ -3,7 +3,7 @@
   connection: local
   vars:
     #instances: ["mongodb", "mysql", "frontend", "redis", "rabbitmq", "catalogue", "user", "cart", "shipping", "payment"]
-    instances: ["redis","mysql","rabbitmq"]
+    instances: ["redis"]
     image_id: ami-0220d79f3f480ecf5
     domain_name: gssc.online
     work: create
