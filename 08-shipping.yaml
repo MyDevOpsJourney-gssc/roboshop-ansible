@@ -45,7 +45,7 @@
       remote_src: yes
 
   - name: install dependencies
-    command: maven clean package
+    command: mvn clean package
     args:
       chdir: /app
   
@@ -61,7 +61,7 @@
 
   - name: install python dependencies
     pip:
-      name: pyMySQL
+      name: PyMySQL
       executable: pip3.9
 
   - name: load mysql data
